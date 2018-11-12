@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mon site météo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="pattern">
+    <header> <h1>Mon appli météo !</h1></header>
+    <main>
+
+        <form action="" id="weather-query">
+            <input type="text" name="" id="ville" placeholder="Ville, initiales pays">
+            <input type="submit" id="charger" value="Charger"></button>
+        </form>
+        
+        <section id="weatherSection">
+            
+            <article id="infos"></article>
+            <article id="commentaire"></article>
+
+            <section id ="view"><article id="tempsIcone"></article>
+            <article id="temperature"></article></section>
+            <article id="pression"></article>
+            <article id="vent"></article>
+        </section>
+        <section id="forecastSection">
+            <h3>Pour les prochains jours</h3>
+
+            <table id="forecast"></table>
+
+
+            
+        </section>
+        <section id="villes">
+                <article>
+                <h3>Météo des villes les plus consultés</h3>
+                <p id="topville"></p>
+             </article>
+             </section>
+    </main>
+    <footer></footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+
+</html>

@@ -1,0 +1,63 @@
+body{
+    background-color: black;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    padding:10px;
+    width: 60%;
+    margin: auto;
+   
+}
+
+table{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+#weatherSection, #forecastSection{
+    display: none;
+    justify-content: center;
+    flex-flow: row;
+    text-shadow: 0 0 2px;
+
+}
+
+input{
+    padding: .5rem;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    
+}
+
+#charger{
+    width: 5rem;
+    display: none;
+
+}
+
+#ville{
+    width: 100%;
+}
+#infos{
+    font-weight: bold;
+}
+
+#commentaire, #tempsIcone,#temperature{
+    font-size: 2rem;
+}
+#view{
+    display: flex;
+    justify-content: center;
+
+}
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px){
+    #charger{
+        margin: auto;
+        display: block;
+    
+    }
+}
