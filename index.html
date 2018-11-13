@@ -19,7 +19,7 @@
     <main>
 
         <form action="" id="weather-query">
-            <input type="text" name="" id="ville" placeholder="Ville, initiales pays">
+            <input type="text"  id="ville" placeholder="Ville, initiales pays">
             <input type="submit" id="charger" value="Charger"></button>
         </form>
         
@@ -34,23 +34,29 @@
             <article id="vent"></article>
         </section>
         <section id="forecastSection">
-            <h3>Pour les prochains jours</h3>
+            <h3>les prochaines heures</h3>
 
-            <table id="forecast"></table>
+            <section id="nexthours"></section>
 
+            <h3>les prochains jours</h3>
+
+            <section id="nextdays"></section>
 
             
         </section>
         <section id="villes">
                 <article>
                 <h3>Météo des villes les plus consultés</h3>
-                <p id="topville"></p>
+                <ul id="topvilles"></ul>
              </article>
              </section>
     </main>
     <footer></footer>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/style.js"></script>
+<script src="js/utils.js"></script>
 <script src="js/main.js"></script>
 
 </html>

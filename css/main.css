@@ -1,4 +1,4 @@
-body{
+/* body{
     background-color: black;
     color: white;
     font-family: 'Raleway', sans-serif;
@@ -60,4 +60,9 @@ and (max-device-width : 667px){
         display: block;
     
     }
-}
+} */
+
+/* #nextdays i:first-child::before{
+    content: none;
+} */
+
