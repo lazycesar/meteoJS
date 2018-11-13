@@ -1,13 +1,16 @@
 function topVilles(villesEnregistrees, top) {
-  top = top<villesEnregistrees.length?top:villesEnregistrees.length-1;
+  top = top <= villesEnregistrees.length ? top : villesEnregistrees.length;
   villesEnregistrees.sort(function(a, b) {
-    return b.view - a.view;
+    return parseInt(b.view) - parseInt(a.view);
   });
 
   let top3 = [];
 
   for (i = 0; i < top; i++) {
-    top3.push({ville:villesEnregistrees[i].ville, country:villesEnregistrees[i].country});
+    top3.push({
+      ville: villesEnregistrees[i].ville,
+      country: villesEnregistrees[i].country
+    });
   }
   return top3;
 }
@@ -37,46 +40,54 @@ function forecast(forecastWeather) {
   };
 }
 
-function miseEnParagraphe(texte){
-return "<p>"+texte+"</p>"
-}
-
-function tourneFleche(deg){
-    return `<i class="fas fa-arrow-down" style="transform: rotate(${deg}deg);"></i>`
-}
-
-function convertDate(unix_timestamp){
-    const maDate = new Date(unix_timestamp*1000);
-    const minute = maDate.getMinutes()==0?maDate.getMinutes()+"0":maDate.getMinutes();
-    const heure = maDate.getHours()+":"+minute;
-    const date = maDate.getDate()+"/"+(+maDate.getMonth()+1);
-    return {date:date, heure:heure, fullDate:maDate};
-}
-
-function minMaxForecast(list){
- 
-    const tabMin =  list.sort(function(a,b){
-        return  a.main.temp - b.main.temp;
-    });
-    const min = tabMin[0].main.temp;
-    const max = tabMin[tabMin.length-1].main.temp;
+function setTimer(villeRecherchee) {
+  if(villeRecherchee!=undefined){
+  // console.log("je rentre dans la fonction, villeRecherchee = "+villeRecherchee+" refresh = "+refresh)
+  if (refresh == undefined) {
+    // console.log("j'initialise le compteur");
     
-    return {min:min, max:max}
+    return refresh = window.setInterval(chargeMeteoDuJour(villeRecherchee),7200000);
+  } else {
+    window.clearInterval(refresh);
+    // console.log("je réinitialise le compteur");
+    return refresh = window.setInterval(chargeMeteoDuJour(villeRecherchee),7200000);
+  }}
 }
 
 
-function changeTitre(meteoDuJour){
-  if(document.title=="Mon site météo"){
-    document.title = meteoDuJour
-  }else document.title = "Mon site météo"
+function miseEnParagraphe(texte) {
+  return "<p>" + texte + "</p>";
 }
 
-function capitalize(str){
-  return str[0].toUpperCase() + str.slice(1)
+function tourneFleche(deg) {
+  return `<i class="fas fa-arrow-down" style="transform: rotate(${deg}deg);"></i>`;
 }
 
-function afficheVilleCountry(){
-ville=capitalize(meteoDuJour.name);
-country = meteoDuJour.sys.country
-return ville+", "+country;
+function convertDate(unix_timestamp) {
+  const maDate = new Date(unix_timestamp * 1000);
+  const minute =
+    maDate.getMinutes() == 0 ? maDate.getMinutes() + "0" : maDate.getMinutes();
+  const heure = maDate.getHours() + ":" + minute;
+  const date = maDate.getDate() + "/" + (+maDate.getMonth() + 1);
+  return { date: date, heure: heure, fullDate: maDate };
+}
+
+function minMaxForecast(list) {
+  const tabMin = list.sort(function(a, b) {
+    return a.main.temp - b.main.temp;
+  });
+  const min = tabMin[0].main.temp;
+  const max = tabMin[tabMin.length - 1].main.temp;
+
+  return { min: min, max: max };
+}
+
+function capitalize(str) {
+  return str[0].toUpperCase() + str.slice(1);
+}
+
+function afficheVilleCountry() {
+  ville = capitalize(meteoDuJour.name);
+  country = meteoDuJour.sys.country;
+  return ville + ", " + country;
 }
