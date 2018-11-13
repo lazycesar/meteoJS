@@ -1,14 +1,7 @@
-/* body{
-    background-color: black;
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    padding:10px;
-    width: 60%;
-    margin: auto;
-   
+body {
+  font-family: "Ubuntu", sans-serif;
 }
-
+/* 
 table{
     margin: auto;
     width: 100%;
@@ -65,4 +58,3 @@ and (max-device-width : 667px){
 /* #nextdays i:first-child::before{
     content: none;
 } */
-
