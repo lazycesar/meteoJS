@@ -1,11 +1,12 @@
-body {
-  background-color: black;
-  color: white;
-  font-family: "Ubuntu", sans-serif;
-  text-align: center;
-  padding: 10px;
-  width: 60%;
-  margin: auto;
+/* body{
+    background-color: black;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    padding:10px;
+    width: 60%;
+    margin: auto;
+   
 }
 
 table {
@@ -56,3 +57,16 @@ input {
     display: block;
   }
 }
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px){
+    #charger{
+        margin: auto;
+        display: block;
+    
+    }
+} */
+
+/* #nextdays i:first-child::before{
+    content: none;
+} */
