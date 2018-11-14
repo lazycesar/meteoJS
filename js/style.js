@@ -88,7 +88,7 @@ function miseEnFormeForcast(forecast) {
     html +=
       "<article>" +
       miseEnParagraphe(convertDate(forecast.meteoJour[i].dt).heure) +
-      miseEnParagraphe(icone)+
+      miseEnParagraphe("temps : " + icone)+
       miseEnParagraphe(forecast.meteoJour[i].main.temp + " °C");
     ("</article>");
   }
@@ -119,6 +119,7 @@ icone ="";
 
       
   }
+  console.log(html);
   document.getElementById("nextdays").innerHTML = html;
  }
 
