@@ -5,7 +5,8 @@ async function getForecastMeteo(ville) {
       "&appid=8e602b9ea28ed4f9f8fc97a5f6d1105c&units=metric"
   ).then(function(reponse) {
     return reponse.json();
-  });
+  })
+  .catch(erreurVille())
 }
 
 function getVillesRecords() {
@@ -21,25 +22,50 @@ function getMeteo(ville) {
       "&appid=8e602b9ea28ed4f9f8fc97a5f6d1105c&units=metric"
   ).then(function(reponse) {
     return reponse.json();
-  });
+  })
+  // .catch(function(error){
+  //   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+  // });
 }
 
+function verifVille(majVille) {
+  let value = {};
+  
+  const index = villesEnregistrees.findIndex(
+    e =>
+      e.ville == meteoDuJour.name.toLowerCase() &&
+      e.country == meteoDuJour.sys.country.toLowerCase()
+  );
 
-
-  function putInApi(url, value){
-  $.ajax({
-    url: url,
+  if (index === -1) {
     
-    type: "PUT",
-    contentType: "application/json",
-    data: JSON.stringify(value),
-    dataType: 'json',
-    success: async function (reponse) {
-      villesEnregistrees =  await getVillesRecords();
-      afficheTopVilles(topVilles(villesEnregistrees,3));
-    },
-    error: function () {
-    }
+    value = {
+      ville: majVille.name.toLowerCase(),
+      country: majVille.sys.country.toLowerCase(),
+      view: 1
+    };
+    
+    $.post("http://5be41d5495e4340013f88ebe.mockapi.io/Meteo/",value,function(){
+      villesEnregistrees.push(value);
+      load();})
+  } else {
+    const id = villesEnregistrees[index].id;
+    
+    value = { view: +villesEnregistrees[index].view + 1 };
 
- });
+    $.ajax({
+      url: "http://5be41d5495e4340013f88ebe.mockapi.io/Meteo/" + id,
+      
+      type: "PUT",
+      contentType: "application/json",
+      data: JSON.stringify(value),
+      dataType: 'json',
+      success: function (){
+        load()
+      }
+   
+   
+   });
+  }
 }
+

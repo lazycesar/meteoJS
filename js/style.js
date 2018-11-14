@@ -51,7 +51,9 @@ function miseEnFormeMeteoDuJour(meteoJour) {
   const coucheSoleil =
     "<i class='wi wi-sunset'>" + convertDate(+meteoJour.sys.sunset).heure;
   const releve = convertDate(+meteoJour.dt).heure;
-  document.title =afficheVilleCountry()+" : " + meteos[temps].commentaire+"/"+meteoJour.main.temp + " °C"
+  const formatVillePourTitre = afficheVilleCountry().slice(0, afficheVilleCountry().indexOf(","))
+  document.title = formatVillePourTitre+" : " + meteos[temps].commentaire+"/"+meteoJour.main.temp + " °C"
+ setTimer();
 
   document.getElementById("infos").innerHTML = miseEnParagraphe(
     "Actuellement à " + afficheVilleCountry()
@@ -71,7 +73,7 @@ function miseEnFormeMeteoDuJour(meteoJour) {
     miseEnParagraphe(leveSoleil + " " + coucheSoleil);
   document.getElementById("vent").innerHTML =
     miseEnParagraphe(
-      "Vent : " + meteoJour.wind.speed + " direction " + fleche
+      "Vent : " + meteoJour.wind.speed + " km/h - direction " + fleche
     ) + miseEnParagraphe("mise à jour : " + releve);
 }
 
@@ -122,7 +124,7 @@ icone ="";
 
 
 function afficheTopVilles(topVilles){
-  html ="";
+  html ="<ol>";
   let ville ="";
   let pays ="";
 
@@ -131,13 +133,22 @@ function afficheTopVilles(topVilles){
     pays = topVilles[i].country.toUpperCase();
 
     
-    html += `<li>${ville+","+pays}</li><button data-action="afficher" data-ville="${ville+","+pays}">Afficher</button>`
+    html += `<li><button data-action="afficher" data-ville="${ville+","+pays}">${ville+","+pays}</button></li>`
     
   }
+
+  html+="<ol>"
   document.getElementById("topvilles").innerHTML = html;
   var matches = document.querySelectorAll('button[data-action="afficher"]');
 
   matches.forEach(link=>{
     link.addEventListener('click', chargeMeteoVille)
   })
+}
+
+function erreurVille() {
+
+ 
+  document.getElementById("ville").style.border = "2px solid red";
+
 }
