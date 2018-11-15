@@ -1,41 +1,41 @@
 const meteos = {
   Rain: {
-    icone: `<i class='wi wi-day-rain'>`,
+    icone: '<i class="wi wi-day-rain"></i>',
     commentaire: "Pluie",
     bgstyle: "#4C4E4F"
   },
 
   Clouds: {
-    icone: `<i class='wi wi-day-cloudy'>`,
+    icone: '<i class="wi wi-day-cloudy"></i>',
     commentaire: "Nuageux",
     bgstyle: "#245592"
   },
 
   Clear: {
-    icone: `<i class='wi wi-day-sunny'>`,
+        icone: '<i class="wi wi-day-sunny"></i>',
     commentaire: "Dégagé",
     bgstyle: "#2889D7"
   },
 
   Snow: {
-    icone: `<i class='wi wi-day-snow'>`,
+    icone: '<i class="wi wi-day-snow"></i>',
     commentaire: "Neige",
     bgstyle: "#B8CEE7"
   },
 
   Mist: {
-    icone: `<i class='wi wi-day-fog'>`,
+    icone: '<i class="wi wi-day-fog"></i>',
     commentaire: "Brumeux",
     bgstyle: "#fffcfc"
   },
   Fog: {
-    icone: `<i class='wi wi-day-fog'>`,
+    icone: '<i class="wi wi-day-fog"></i>',
     commentaire: "Brouillard",
     bgstyle: "#fffcfc"
   },
 
   Drizzle: {
-    icone: `<i class='wi wi-day-sleet'>`,
+    icone: '<i class="wi wi-day-sleet"></i>',
     commentaire: "Grisaille",
     bgstyle: "#dedbdb"
   }
@@ -75,52 +75,57 @@ function miseEnFormeMeteoDuJour(meteoJour) {
     miseEnParagraphe(
       "Vent : " + meteoJour.wind.speed + " km/h - direction " + fleche
     ) + miseEnParagraphe("mise à jour : " + releve);
+
+
 }
 
 function miseEnFormeForcast(forecast) {
+  
   /////// section tendance du jour
-  let html = "";
-  //console.log(forecast);
-  let icone =""
-  for (i = 0; i < forecast.meteoJour.length; i++) {
-    icone = meteos[forecast.meteoJour[i].weather[0].main].icone
-    
-    html +=
-      "<article>" +
-      miseEnParagraphe(convertDate(forecast.meteoJour[i].dt).heure) +
-      miseEnParagraphe("temps : " + icone)+
-      miseEnParagraphe(forecast.meteoJour[i].main.temp + " °C");
-    ("</article>");
+
+ document.getElementById("nexthours").innerHTML = createForcast(forecast.meteoJour);
+
+//   /////// section jours suivant
+let listeArticle =""
+
+for (i = 0; i < forecast.forecast.length; i += 8) {
+  
+  // console.log(forecast.forecast.slice(i,i+7))
+  
+  listeArticle +="<section>"+miseEnParagraphe(convertDate(forecast.forecast[i].dt).date)+createForcast(forecast.forecast.slice(i,i+7))+"</section>";
   }
 
-  document.getElementById("nexthours").innerHTML = html;
+  document.getElementById("nextdays").innerHTML = listeArticle;
 
-  /////// section jours suivant
-  let tempMin = 0;
-  let tempMax = 0;
+//   let tempMin = 0;
+//   let tempMax = 0;
   
-  html = "";
-icone ="";
+//   html = "";
+// icone ="";
   
-  for (i = 0; i < forecast.forecast.length; i += 8) {
+//   // 
     
-    if(i+4<= forecast.forecast.length){
-    tempMin = minMaxForecast(forecast.forecast.slice(i, i + 8)).min;
+//     // if(i+4<= forecast.forecast.length){
 
-    tempMax = minMaxForecast(forecast.forecast.slice(i, i + 8)).max;
-    icone = meteos[forecast.forecast[i].weather[0].main].icone;
+
+
+//       // }
+//     // tempMin = minMaxForecast(forecast.forecast.slice(i, i + 8)).min;
+
+//     // tempMax = minMaxForecast(forecast.forecast.slice(i, i + 8)).max;
+//     // icone = meteos[forecast.forecast[i].weather[0].main].icone;
     
-    html +=
-      "<article>" +
-      miseEnParagraphe(`<a href ="#" dataJour=${forecast.forecast[i].dt}>${convertDate(forecast.forecast[i].dt).date}</a>`) +
-      miseEnParagraphe(icone) +
-      miseEnParagraphe(tempMin + " °C - " + tempMax + " °C") +
-      "</article>";}
+//     // html +=
+//     //   "<article>" +
+//     //   miseEnParagraphe(convertDate(forecast.forecast[i].dt).date) +
+//     //   miseEnParagraphe(icone) +
+//     //   miseEnParagraphe(tempMin + " °C - " + tempMax + " °C") +
+//     //   "</article>";}
 
       
-  }
-  console.log(html);
-  document.getElementById("nextdays").innerHTML = html;
+//   // }
+//   // console.log(html);
+//  L = html;
  }
 
 
@@ -152,4 +157,24 @@ function erreurVille() {
  
   document.getElementById("ville").style.border = "2px solid red";
 
+}
+
+function createForcast(tableau){
+  let html ="";
+  // console.log(tableau)
+  for(j=0;j<tableau.length;j++){
+  
+  icone = meteos[tableau[j].weather[0].main].icone
+  html +=
+  "<article>" +
+  miseEnParagraphe(convertDate(tableau[j].dt).heure) +
+
+  miseEnParagraphe(icone)+
+
+  miseEnParagraphe(tableau[j].main.temp + " °C")
+
++"</article>";
+}
+
+return html
 }

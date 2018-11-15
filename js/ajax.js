@@ -45,7 +45,7 @@ function verifVille(majVille) {
       view: 1
     };
     
-    $.post("http://5be41d5495e4340013f88ebe.mockapi.io/Meteo/",value,function(){
+    $.post("https://5be41d5495e4340013f88ebe.mockapi.io/Meteo/",value,function(){
       villesEnregistrees.push(value);
       load();})
   } else {
@@ -54,7 +54,7 @@ function verifVille(majVille) {
     value = { view: +villesEnregistrees[index].view + 1 };
 
     $.ajax({
-      url: "http://5be41d5495e4340013f88ebe.mockapi.io/Meteo/" + id,
+      url: "https://5be41d5495e4340013f88ebe.mockapi.io/Meteo/" + id,
       
       type: "PUT",
       contentType: "application/json",

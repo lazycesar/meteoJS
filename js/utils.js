@@ -91,3 +91,7 @@ function afficheVilleCountry() {
   country = meteoDuJour.sys.country;
   return ville + ", " + country;
 }
+
+function makeForecast(tableau){
+  
+}
