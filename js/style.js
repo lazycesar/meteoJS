@@ -90,42 +90,12 @@ let listeArticle =""
 
 for (i = 0; i < forecast.forecast.length; i += 8) {
   
-  // console.log(forecast.forecast.slice(i,i+7))
   
   listeArticle +="<section>"+miseEnParagraphe(convertDate(forecast.forecast[i].dt).date)+createForcast(forecast.forecast.slice(i,i+7))+"</section>";
   }
 
   document.getElementById("nextdays").innerHTML = listeArticle;
 
-//   let tempMin = 0;
-//   let tempMax = 0;
-  
-//   html = "";
-// icone ="";
-  
-//   // 
-    
-//     // if(i+4<= forecast.forecast.length){
-
-
-
-//       // }
-//     // tempMin = minMaxForecast(forecast.forecast.slice(i, i + 8)).min;
-
-//     // tempMax = minMaxForecast(forecast.forecast.slice(i, i + 8)).max;
-//     // icone = meteos[forecast.forecast[i].weather[0].main].icone;
-    
-//     // html +=
-//     //   "<article>" +
-//     //   miseEnParagraphe(convertDate(forecast.forecast[i].dt).date) +
-//     //   miseEnParagraphe(icone) +
-//     //   miseEnParagraphe(tempMin + " °C - " + tempMax + " °C") +
-//     //   "</article>";}
-
-      
-//   // }
-//   // console.log(html);
-//  L = html;
  }
 
 
