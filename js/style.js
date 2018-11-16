@@ -89,22 +89,23 @@ function miseEnFormeMeteoDuJour(meteoJour) {
 function miseEnFormeForcast(forecast) {
   /////// section tendance du jour
 
-  document.getElementById("nexthours").innerHTML = createForcast(
-    forecast.meteoJour
-  );
+  document.getElementById("nexthours").innerHTML =
+    "<h3 class='w100'> les prochaines heures</h3>" +
+    createForcast(forecast.meteoJour);
 
   //   /////// section jours suivant
   let listeArticle = "";
 
   for (i = 0; i < forecast.forecast.length; i += 8) {
     listeArticle +=
-      "<section>" +
+      "<div>" +
       miseEnParagraphe(convertDate(forecast.forecast[i].dt).date) +
       createForcast(forecast.forecast.slice(i, i + 7)) +
-      "</section>";
+      "</div>";
   }
 
-  document.getElementById("nextdays").innerHTML = listeArticle;
+  document.getElementById("nextdays").innerHTML =
+    "<h3 class='w100'>les prochains jours</h3>" + listeArticle;
 }
 
 function afficheTopVilles(topVilles) {
