@@ -16,8 +16,8 @@
 </head>
 
 <body class="pattern">
-    <header>
-        <h1>Mon appli météo !</h1>
+    <header class="container-flex">
+        <!-- <h1>Mon appli météo !</h1>
         <p>Pour le moment aucun style n'est définit, ne vous étonnez pas des bug graphiques ( rafraichement si une
             ville est incorecte).
             En ce qui concerne les fonctionnalités: </p>
@@ -51,29 +51,38 @@
 
         </ul>
 
-        Merci pour vos retours
+        Merci pour vos retours -->
 
-    </header>
-    <main>
+    </header >
+    <main class="container-flex">
 
         <form action="" id="weather-query">
             <input type="text" id="ville" placeholder="Ville, initiales pays">
             <input type="submit" id="charger" value="Charger"></button>
         </form>
 
-        <section id="weatherSection">
+        <section id="weatherSection" class="l-section">
 
-            <article id="infos"></article>
-            <article id="commentaire"></article>
+            <div id="infoVille" class="w100"></div>
+            <div class="infoTemp w50">
 
-            <section id="view">
-                <article id="tempsIcone"></article>
-                <article id="temperature"></article>
-            </section>
-            <article id="pression"></article>
-            <article id="vent"></article>
+                <div id="commentaire"></div>
+                
+                <section id="view">
+                    <div id="tempsIcone"></div>
+                    <div id="temperature"></div>
+                </section>
+            </div>
+            <div class="infoPlus w50">
+
+                <div id="pression"></div>
+                <div id="vent"></div>
+            </div>
+            <div id="jsDate" class="infoDate w100">
+
+            </div>
         </section>
-        <section id="forecastSection">
+        <section id="forecastSection" class="l-section">
             <h3>les prochaines heures</h3>
 
             <section id="nexthours"></section>

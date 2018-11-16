@@ -4,6 +4,34 @@
 body {
   font-family: "Ubuntu", sans-serif;
 }
+
+html {
+  font-size: 16px;
+}
+
+.container-flex {
+  width: 920px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* layout */
+.l-section {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.w100 {
+  flex: 1 1 100%;
+}
+.w50 {
+  flex: 1 1 auto;
+}
 /* 
 table{
     margin: auto;
@@ -61,3 +89,14 @@ and (max-device-width : 667px){
 /* #nextdays i:first-child::before{
     content: none;
 } */
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
+}
