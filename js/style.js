@@ -45,9 +45,10 @@ function miseEnFormeMeteoDuJour(meteoJour) {
   const fleche = tourneFleche(meteoJour.wind.deg);
   const temps = meteoJour.weather[0].main;
   const leveSoleil =
-    "<i class='wi wi-sunrise'>" + convertDate(+meteoJour.sys.sunrise).heure;
+    "<i class='wi wi-sunrise'> </i>" +
+    convertDate(+meteoJour.sys.sunrise).heure;
   const coucheSoleil =
-    "<i class='wi wi-sunset'>" + convertDate(+meteoJour.sys.sunset).heure;
+    "<i class='wi wi-sunset'> </i>" + convertDate(+meteoJour.sys.sunset).heure;
   const releve = convertDate(+meteoJour.dt).heure;
   const formatVillePourTitre = afficheVilleCountry().slice(
     0,
@@ -62,27 +63,27 @@ function miseEnFormeMeteoDuJour(meteoJour) {
     " °C";
   setTimer();
 
-  document.getElementById("infoVille").innerHTML = miseEnParagraphe(
-    "Actuellement à " + "<p>" + afficheVilleCountry() + "</p>"
-  );
-  document.getElementById("commentaire").innerHTML = miseEnParagraphe(
-    meteos[temps].commentaire
-  );
-  document.getElementById("tempsIcone").innerHTML = miseEnParagraphe(
-    meteos[temps].icone
-  );
-  document.getElementById("temperature").innerHTML = miseEnParagraphe(
-    meteoJour.main.temp + " °C"
-  );
-  document.getElementById("pression").innerHTML =
+  document.getElementById("infoVille").innerHTML =
+    "Actuellement à " + "<h1>" + afficheVilleCountry() + "</h1>";
+  // document.getElementById("commentaire").innerHTML = meteos[temps].commentaire;
+  // document.getElementById("tempsIcone").innerHTML = meteos[temps].icone;
+  // document.getElementById("temperature").innerHTML =
+  //   meteoJour.main.temp + " °C";
+  document.getElementById("infoTemp").innerHTML =
+    miseEnParagraphe(meteos[temps].commentaire) +
+    miseEnParagraphe(meteos[temps].icone) +
+    miseEnParagraphe(meteoJour.main.temp + " °C");
+
+  document.getElementById("infoPlus").innerHTML =
     miseEnParagraphe("Pression : " + meteoJour.main.pressure + " hP") +
     miseEnParagraphe("Taux d'humidité : " + meteoJour.main.humidity + " %") +
-    miseEnParagraphe(leveSoleil + " " + coucheSoleil);
-  document.getElementById("vent").innerHTML = miseEnParagraphe(
-    "Vent : " + meteoJour.wind.speed + " km/h - direction " + fleche
-  );
+    miseEnParagraphe(leveSoleil + " " + coucheSoleil) +
+    "Vent : " +
+    meteoJour.wind.speed +
+    " km/h - direction " +
+    fleche;
   document.getElementById("jsDate").innerHTML = miseEnParagraphe(
-    "mise à jour : " + releve
+    "Derniere mise à jour : " + releve
   );
 }
 
@@ -109,21 +110,19 @@ function miseEnFormeForcast(forecast) {
 }
 
 function afficheTopVilles(topVilles) {
-  html = "<ol>";
+  html = "";
   let ville = "";
   let pays = "";
-
   for (i = 0; i < topVilles.length; i++) {
     ville = capitalize(topVilles[i].ville);
     pays = topVilles[i].country.toUpperCase();
 
-    html += `<li><button data-action="afficher" data-ville="${ville +
+    html += `<button data-action="afficher" data-ville="${ville +
       "," +
-      pays}">${ville + "," + pays}</button></li>`;
+      pays}">${ville + "," + pays}</button>`;
   }
-
-  html += "<ol>";
-  document.getElementById("topvilles").innerHTML = html;
+  document.getElementById("villes").innerHTML =
+    " <h3 class='w100'>Météo des villes les plus consultés</h3>" + html;
   var matches = document.querySelectorAll('button[data-action="afficher"]');
 
   matches.forEach(link => {

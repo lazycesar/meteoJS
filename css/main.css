@@ -11,6 +11,14 @@ html {
   margin: 0;
   padding: 0;
 }
+
+#weather-query input {
+  width: 200px;
+}
+
+#weather-query button {
+}
+
 .container-flex {
   width: 920px;
   max-width: 90%;
@@ -20,12 +28,18 @@ html {
   margin-left: auto;
   margin-right: auto;
 }
+.infoTemp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 /* layout */
 .l-section {
   width: 100%;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 .w100 {
   flex: 1 1 100%;
