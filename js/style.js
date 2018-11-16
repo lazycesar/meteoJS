@@ -90,7 +90,7 @@ function miseEnFormeForcast(forecast) {
   /////// section tendance du jour
 
   document.getElementById("nexthours").innerHTML =
-    "<h3 class='w100'> les prochaines heures</h3>" +
+    "<h3 class='w100'>Les prochaines heures</h3>" +
     createForcast(forecast.meteoJour);
 
   //   /////// section jours suivant
@@ -105,7 +105,7 @@ function miseEnFormeForcast(forecast) {
   }
 
   document.getElementById("nextdays").innerHTML =
-    "<h3 class='w100'>les prochains jours</h3>" + listeArticle;
+    "<h3 class='w100'>Les prochains jours</h3>" + listeArticle;
 }
 
 function afficheTopVilles(topVilles) {
