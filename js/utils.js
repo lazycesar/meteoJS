@@ -66,7 +66,7 @@ function tourneFleche(deg) {
 function convertDate(unix_timestamp) {
   const maDate = new Date(unix_timestamp * 1000);
   const minute =
-    maDate.getMinutes() == 0 ? maDate.getMinutes() + "0" : maDate.getMinutes();
+    maDate.getMinutes() < 10 ? "0" + maDate.getMinutes()  : maDate.getMinutes();
   const heure = maDate.getHours() + ":" + minute;
   const date = maDate.getDate() + "/" + (+maDate.getMonth() + 1);
   return { date: date, heure: heure, fullDate: maDate };
