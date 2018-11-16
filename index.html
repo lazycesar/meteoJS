@@ -2,47 +2,37 @@
 <html lang="en">
 
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Mon site météo</title>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Ubuntu"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Merriweather"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-          crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="css/main.css" />
-      </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mon site météo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
 
 <body class="pattern">
-    <header> <h1>Mon appli météo v2!</h1>
-    <p>Pour le moment aucun style n'est définit, ne vous étonnez pas des bug graphiques (multi icones météo/pas de rafraissiment si une ville est incorecte).
-        En ce qui concerne les fonctionnalités: </p>
-    <ul>
-        <li>Le titre de la page change et donne la météo de la ville (vous pouvez garder un oeil sur celle-ci)</li>
-        <li>Mise à jour automatique toutes le 2heures de la page</li>
-        <li>Écran d'accueil :
-           <ul>
-            <li>affiche le top 3 des recherches (se met à jour en fonction du nombre d'occurences de recherche de la ville)</li>
- 
-        </ul>
-        </li>
-       
-            <li>Section Météo du Jour</li>
+    <header>
+        <h1>Mon appli météo !</h1>
+        <p>Pour le moment aucun style n'est définit, ne vous étonnez pas des bug graphiques ( rafraichement si une
+            ville est incorecte).
+            En ce qui concerne les fonctionnalités: </p>
+        <ul>
+            <li>Le titre de la page change et donne la météo de la ville (vous pouvez garder un oeil sur celle-ci)</li>
+            <li>Mise à jour automatique toutes le 2heures de la page</li>
+            <li>Écran d'accueil :
+                <ul>
+                    <li>affiche le top 3 des recherches (se met à jour en fonction du nombre d'occurences de recherche
+                        de la ville)</li>
+
+                </ul>
+            </li>
+
+            <li><strong> Météo du Jour</strong></li>
             <ul>
                 <li>Affiche les infos courantes (tendance, icone, température)</li>
                 <li>Pression</li>
@@ -53,32 +43,33 @@
                 <li>prévision jusqu'à minuit</li>
             </ul>
             <li>Section Prochains jour</li>
-            <ul><li>affiche les tendances des prochains jours </li></ul>
-            <li>A venir</li>
-            <ul><li>Details lors du clique sur une date avec prevision toutes les 3h </li></ul>
-      
+            <ul>
+                <li>affiche les tendances des prochains jours </li>
+            </ul>
+
+
+
         </ul>
-        
- 
-    </ul>
 
-    Merci pour vos retours
+        Merci pour vos retours
 
-</header>
+    </header>
     <main>
 
         <form action="" id="weather-query">
-            <input type="text"  id="ville" placeholder="Ville, initiales pays">
+            <input type="text" id="ville" placeholder="Ville, initiales pays">
             <input type="submit" id="charger" value="Charger"></button>
         </form>
-        
+
         <section id="weatherSection">
-            
+
             <article id="infos"></article>
             <article id="commentaire"></article>
 
-            <section id ="view"><article id="tempsIcone"></article>
-            <article id="temperature"></article></section>
+            <section id="view">
+                <article id="tempsIcone"></article>
+                <article id="temperature"></article>
+            </section>
             <article id="pression"></article>
             <article id="vent"></article>
         </section>
@@ -91,14 +82,14 @@
 
             <section id="nextdays"></section>
 
-            
+
         </section>
         <section id="villes">
-                <article>
+            <article>
                 <h3>Météo des villes les plus consultés</h3>
                 <ul id="topvilles"></ul>
-             </article>
-             </section>
+            </article>
+        </section>
     </main>
     <footer></footer>
 </body>
