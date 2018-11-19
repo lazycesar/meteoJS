@@ -2,42 +2,42 @@ const meteos = {
   Rain: {
     icone: '<i class="wi wi-day-rain"></i>',
     commentaire: "Pluie",
-    bgstyle: "#4C4E4F"
+    bgstyle: "url('img/pluie.jpg')"
   },
 
   Clouds: {
     icone: '<i class="wi wi-day-cloudy"></i>',
     commentaire: "Nuageux",
-    bgstyle: "#245592"
+    bgstyle: "url('img/nuageux.jpg')"
   },
 
   Clear: {
     icone: '<i class="wi wi-day-sunny"></i>',
     commentaire: "Dégagé",
-    bgstyle: "#2889D7"
+    bgstyle: "url('img/soleil.jpg')"
   },
 
   Snow: {
     icone: '<i class="wi wi-day-snow"></i>',
     commentaire: "Neige",
-    bgstyle: "#B8CEE7"
+    bgstyle: "url('img/neige.jpg')"
   },
 
   Mist: {
     icone: '<i class="wi wi-day-fog"></i>',
     commentaire: "Brumeux",
-    bgstyle: "#fffcfc"
+    bgstyle: "url('img/bruine.jpg')"
   },
   Fog: {
     icone: '<i class="wi wi-day-fog"></i>',
     commentaire: "Brouillard",
-    bgstyle: "#fffcfc"
+    bgstyle: "url('img/brouillard.jpg')"
   },
 
   Drizzle: {
     icone: '<i class="wi wi-day-sleet"></i>',
     commentaire: "Grisaille",
-    bgstyle: "#dedbdb"
+    bgstyle: "url('#dedbdb')"
   }
 };
 
@@ -81,6 +81,9 @@ function miseEnFormeMeteoDuJour(meteoJour) {
     " °C" +
     "</p";
 
+    document.getElementById("infoTemp").style.backgroundImage = meteos[temps].bgstyle;
+
+    document.getElementById("infoPlus").style.backgroundImage = meteos[temps].bgstyle;
   document.getElementById("infoPlus").innerHTML =
     miseEnParagraphe("Pression : " + meteoJour.main.pressure + " hP") +
     miseEnParagraphe("Taux d'humidité : " + meteoJour.main.humidity + " %") +
@@ -92,6 +95,7 @@ function miseEnFormeMeteoDuJour(meteoJour) {
   document.getElementById("jsDate").innerHTML = miseEnParagraphe(
     "Derniere mise à jour : " + releve
   );
+
 }
 
 function miseEnFormeForcast(forecast) {
