@@ -1,9 +1,18 @@
+:root {
+  --bg: #ebf7ff;
+  --white: #fff;
+  --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --size-title: calc(20px + 15 * ((100vw - 320px) / 680));
+}
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Niramit", sans-serif;
   margin: 0;
+  background-color: var(--bg);
 }
 
 html {
@@ -11,14 +20,6 @@ html {
   margin: 0;
   padding: 0;
 }
-
-#weather-query input {
-  width: 200px;
-}
-
-#weather-query button {
-}
-
 .container-flex {
   width: 920px;
   max-width: 90%;
@@ -28,11 +29,7 @@ html {
   margin-left: auto;
   margin-right: auto;
 }
-.infoTemp {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
+
 /* layout */
 .l-section {
   width: 100%;
@@ -47,6 +44,10 @@ html {
 .w50 {
   flex: 1 1 auto;
 }
+
+form {
+  margin: 3vw 0;
+}
 .nexthours,
 .nextdays {
   display: flex;
@@ -54,64 +55,70 @@ html {
   align-content: baseline;
   justify-content: space-evenly;
 }
-
-/* 
-table{
-    margin: auto;
-    width: 100%;
-    text-align: center;
+.nexthours div {
+  background-color: ;
+  border-radius: 4px;
+  flex: 1 1 auto;
+  margin: 5px;
+}
+.searchInput {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
-#weatherSection, #forecastSection{
-    display: none;
-    justify-content: center;
-    flex-flow: row;
-    text-shadow: 0 0 2px;
-
+.infoTemp,
+.infoPlus {
+  background-color: var(--white);
+  border-radius: 6px;
+  margin: 5px;
+  box-shadow: var(--box-shadow);
+  padding: 5px 20px;
+}
+.infoTemp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: var(--white);
+  background-image: linear-gradient(to left top, #2980b9, #6dd5fa, #ffffff);
 }
 
-input{
-    padding: .5rem;
-    text-align: center;
-    text-transform: capitalize;
-    margin-bottom: 1rem;
-    
-}
-
-#charger{
-    width: 5rem;
-    display: none;
-
-}
-
-#ville{
-    width: 100%;
-}
-#infos{
-    font-weight: bold;
-}
-
-#commentaire, #tempsIcone,#temperature{
-    font-size: 2rem;
-}
-#view{
-    display: flex;
-    justify-content: center;
-
-}
-@media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 667px){
-    #charger{
-        margin: auto;
-        display: block;
-    
-    }
+/* .infoTemp__comment,
+.infoTemp__degrees {
+  padding: 10px 0;
 } */
+.infoTemp__comment {
+  text-align: right;
+  font-size: var(--size-title);
+  font-weight: 700;
+}
+.infoTemp__degrees {
+  text-align: left;
+}
+.infoPlus {
+  text-align: left;
+  padding: 10px 0 10px 20px;
+}
 
-/* #nextdays i:first-child::before{
-    content: none;
-} */
+.infoTemp__icon {
+  font-size: calc(20px + 40 * ((100vw - 320px) / 680));
+}
+.searchInput input {
+  width: 200px;
+  border: 2px solid lightblue;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.btn {
+  background-color: lightblue;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
 
 @media screen and (min-width: 320px) {
   html {

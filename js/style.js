@@ -70,9 +70,16 @@ function miseEnFormeMeteoDuJour(meteoJour) {
   // document.getElementById("temperature").innerHTML =
   //   meteoJour.main.temp + " °C";
   document.getElementById("infoTemp").innerHTML =
-    miseEnParagraphe(meteos[temps].commentaire) +
-    miseEnParagraphe(meteos[temps].icone) +
-    miseEnParagraphe(meteoJour.main.temp + " °C");
+    "<p class='infoTemp__comment'>" +
+    meteos[temps].commentaire +
+    "</p>" +
+    "<span class='infoTemp__icon' >" +
+    meteos[temps].icone +
+    "</span >" +
+    "<p class='infoTemp__degrees'>" +
+    meteoJour.main.temp +
+    " °C" +
+    "</p";
 
   document.getElementById("infoPlus").innerHTML =
     miseEnParagraphe("Pression : " + meteoJour.main.pressure + " hP") +
@@ -140,11 +147,13 @@ function createForcast(tableau) {
   for (j = 0; j < tableau.length; j++) {
     icone = meteos[tableau[j].weather[0].main].icone;
     html +=
-      "<article>" +
+      "<div>" +
       miseEnParagraphe(convertDate(tableau[j].dt).heure) +
-      miseEnParagraphe(icone) +
+      "<span>" +
+      icone +
+      "</span>" +
       miseEnParagraphe(tableau[j].main.temp + " °C") +
-      "</article>";
+      "</div>";
   }
 
   return html;

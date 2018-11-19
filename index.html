@@ -10,9 +10,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      href="https://fonts.googleapis.com/css?family=Niramit:400,700"
       rel="stylesheet"
     />
+
     <link
       href="https://fonts.googleapis.com/css?family=Merriweather"
       rel="stylesheet"
@@ -67,11 +68,13 @@
       -->
     </header>
     <main class="container-flex">
-      <form action="" id="weather-query">
+      <form action="" id="weather-query" class="searchInput">
         <input type="text" id="ville" placeholder="Ville, initiales pays" />
-        <button type="submit" id="charger" value="Charger">Charger</button>
+        <button type="submit" id="charger" class="btn" value="Charger">
+          Charger
+        </button>
       </form>
-      <section id="weatherSection" class="l-section">
+      <section id="weatherSection" class="weatherSection l-section">
         <div id="infoVille" class="w100"></div>
         <div id="infoTemp" class="infoTemp w50"></div>
         <div id="infoPlus" class="infoPlus w50"></div>
