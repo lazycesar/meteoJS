@@ -2,42 +2,42 @@ const meteos = {
   Rain: {
     icone: '<i class="wi wi-day-rain"></i>',
     commentaire: "Pluie",
-    bgstyle: "url('img/pluie.jpg')"
+    bgstyle: "linear-gradient(to left top, #cfd9df,  #e2ebf0)"
   },
 
   Clouds: {
     icone: '<i class="wi wi-day-cloudy"></i>',
     commentaire: "Nuageux",
-    bgstyle: "url('img/nuageux.jpg')"
+    bgstyle: "linear-gradient(to left top, #8e9eab, #eef2f3)"
   },
 
   Clear: {
     icone: '<i class="wi wi-day-sunny"></i>',
     commentaire: "Dégagé",
-    bgstyle: "url('img/soleil.jpg')"
+    bgstyle: "linear-gradient(to left top, #2980b9, #6dd5fa, #ffffff)"
   },
 
   Snow: {
     icone: '<i class="wi wi-day-snow"></i>',
     commentaire: "Neige",
-    bgstyle: "url('img/neige.jpg')"
+    bgstyle: "linear-gradient(to left top, #e6e9f0, #eef1f5);"
   },
 
   Mist: {
     icone: '<i class="wi wi-day-fog"></i>',
     commentaire: "Brumeux",
-    bgstyle: "url('img/bruine.jpg')"
+    bgstyle: "linear-gradient(to left top, #ece9e6, #ffffff)"
   },
   Fog: {
     icone: '<i class="wi wi-day-fog"></i>',
     commentaire: "Brouillard",
-    bgstyle: "url('img/brouillard.jpg')"
+    bgstyle: "linear-gradient(to left top, #ece9e6, #00416A, #ffffff)"
   },
 
   Drizzle: {
     icone: '<i class="wi wi-day-sleet"></i>',
     commentaire: "Grisaille",
-    bgstyle: "url('#dedbdb')"
+    bgstyle: "linear-gradient(to right top, #e6dada, #274046)"
   }
 };
 
@@ -81,9 +81,11 @@ function miseEnFormeMeteoDuJour(meteoJour) {
     " °C" +
     "</p";
 
-    document.getElementById("infoTemp").style.backgroundImage = meteos[temps].bgstyle;
+  document.getElementById("infoTemp").style.backgroundImage =
+    meteos[temps].bgstyle;
 
-    document.getElementById("infoPlus").style.backgroundImage = meteos[temps].bgstyle;
+  document.getElementById("infoPlus").style.backgroundImage =
+    meteos[temps].bgstyle;
   document.getElementById("infoPlus").innerHTML =
     miseEnParagraphe("Pression : " + meteoJour.main.pressure + " hP") +
     miseEnParagraphe("Taux d'humidité : " + meteoJour.main.humidity + " %") +
@@ -95,7 +97,6 @@ function miseEnFormeMeteoDuJour(meteoJour) {
   document.getElementById("jsDate").innerHTML = miseEnParagraphe(
     "Derniere mise à jour : " + releve
   );
-
 }
 
 function miseEnFormeForcast(forecast) {
@@ -128,7 +129,7 @@ function afficheTopVilles(topVilles) {
     ville = capitalize(topVilles[i].ville);
     pays = topVilles[i].country.toUpperCase();
 
-    html += `<button data-action="afficher" data-ville="${ville +
+    html += `<button class="btn" data-action="afficher" data-ville="${ville +
       "," +
       pays}">${ville + "," + pays}</button>`;
   }

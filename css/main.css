@@ -1,6 +1,8 @@
 :root {
   --bg: #ebf7ff;
   --white: #fff;
+  --gray-text: #c3c3c3;
+  --btn: linear-gradient(to left top, #4facfe, #00f2fe);
   --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   --size-title: calc(20px + 15 * ((100vw - 320px) / 680));
 }
@@ -12,7 +14,7 @@
 body {
   font-family: "Niramit", sans-serif;
   margin: 0;
-  background-color: var(--bg);
+  background-color: #f6f6f6;
 }
 
 html {
@@ -46,20 +48,29 @@ html {
 }
 
 form {
-  margin: 3vw 0;
+  margin: 2vw 0;
 }
+.panel {
+  box-shadow: var(--box-shadow);
+  margin-bottom: 2vh;
+  border-radius: 6px;
+}
+
 .nexthours,
 .nextdays {
   display: flex;
   flex-wrap: wrap;
   align-content: baseline;
   justify-content: space-evenly;
+  padding-bottom: 1rem;
 }
 .nexthours div {
-  background-color: ;
-  border-radius: 4px;
   flex: 1 1 auto;
   margin: 5px;
+}
+
+.nexthours div:not(:last-child) {
+  border-right: 1px solid black;
 }
 .searchInput {
   display: flex;
@@ -70,9 +81,7 @@ form {
 .infoTemp,
 .infoPlus {
   background-color: var(--white);
-  border-radius: 6px;
   margin: 5px;
-  box-shadow: var(--box-shadow);
   padding: 5px 20px;
 }
 .infoTemp {
@@ -83,6 +92,9 @@ form {
   background-image: linear-gradient(to left top, #2980b9, #6dd5fa, #ffffff);
 }
 
+.infoDate {
+  margin: 1.5vw 0;
+}
 /* .infoTemp__comment,
 .infoTemp__degrees {
   padding: 10px 0;
@@ -109,15 +121,18 @@ form {
   padding: 5px 10px;
   border-radius: 5px;
   margin-right: 10px;
+  color: var(--gray-text);
 }
 .btn {
-  background-color: lightblue;
+  background-image: var(--btn);
   border: none;
   border-radius: 4px;
   color: white;
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
+  padding: 10px 20px;
+  font-size: 20px;
 }
 
 @media screen and (min-width: 320px) {
