@@ -2,7 +2,7 @@
   --bg: #ebf7ff;
   --white: #fff;
   --gray-text: #c3c3c3;
-  --btn: linear-gradient(to left top, #4facfe, #00f2fe);
+  --blue: #03a9f4;
   --box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   --size-title: calc(20px + 15 * ((100vw - 320px) / 680));
 }
@@ -30,6 +30,9 @@ html {
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+}
+h3 {
+  color: var(--blue);
 }
 
 /* layout */
@@ -70,7 +73,7 @@ form {
 }
 
 .nexthours div:not(:last-child) {
-  border-right: 1px solid black;
+  border-right: 1px solid var(--blue);
 }
 .searchInput {
   display: flex;
@@ -118,22 +121,36 @@ form {
 }
 .searchInput input {
   width: 200px;
-  border: 2px solid lightblue;
+  border: 2px solid var(--blue);
   padding: 5px 10px;
   border-radius: 5px;
   margin-right: 10px;
   color: var(--gray-text);
 }
 .btn {
-  background-image: var(--btn);
-  border: none;
+  background-color: white;
   border-radius: 4px;
-  color: white;
+  color: var(--blue);
   font-weight: 700;
-  text-transform: uppercase;
   cursor: pointer;
-  padding: 10px 15px;
+  padding: 5px 15px;
   font-size: 15px;
+  font-family: "Niramit", sans-serif;
+  border: 2px solid var(--blue);
+  transition: all 0.3s ease-in-out;
+}
+.btn.invert {
+  background: var(--blue);
+  color: white;
+}
+.btn.invert:hover {
+  background-color: white;
+  color: var(--blue);
+}
+
+.btn:hover {
+  background-color: var(--blue);
+  color: white;
 }
 
 @media screen and (min-width: 320px) {
@@ -157,11 +174,6 @@ form {
 *
 *
 */
-.hide{
+.hide {
   display: none;
 }
-
-
-
-
-
