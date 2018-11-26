@@ -6,7 +6,7 @@ async function getForecastMeteo(ville) {
   ).then(function(reponse) {
     return reponse.json();
   })
-  .catch(erreurVille())
+  .catch(displayFields());
 }
 
 function getVillesRecords() {
@@ -23,9 +23,7 @@ function getMeteo(ville) {
   ).then(function(reponse) {
     return reponse.json();
   })
-  // .catch(function(error){
-  //   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
-  // });
+  .catch(displayFields());
 }
 
 function verifVille(majVille) {
@@ -67,5 +65,6 @@ function verifVille(majVille) {
    
    });
   }
+  displayFields("show")
 }
 

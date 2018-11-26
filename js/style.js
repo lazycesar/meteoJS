@@ -171,12 +171,14 @@ function displayFields(show){
     document.querySelector(".infoTemp").classList.remove("hide");
     document.querySelector(".nexthours").classList.remove("hide");
     document.querySelector(".nextdays").classList.remove("hide");
+    document.querySelector(".weatherSection").classList.remove("hide");
     break
     default:
     document.querySelector(".infoPlus").classList.add("hide");
     document.querySelector(".infoTemp").classList.add("hide");
     document.querySelector(".nexthours").classList.add("hide");
     document.querySelector(".nextdays").classList.add("hide");
+    document.querySelector(".weatherSection").classList.add("hide");
     break;
 
     

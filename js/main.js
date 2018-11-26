@@ -31,7 +31,7 @@ async function main(event) {
 document.querySelector("#charger").addEventListener("click", main);
 
 async function chargeMeteoDuJour(villeRecherchee){
-  console.log(villeRecherchee)
+  // console.log(villeRecherchee)
   meteoDuJour = await getMeteo(villeRecherchee);
       
   miseEnFormeMeteoDuJour(meteoDuJour);
