@@ -44,7 +44,12 @@ const meteos = {
     icone: '<i class="wi wi-day-sleet"></i>',
     commentaire: "Grisaille",
     bgstyle: "linear-gradient(to right top, #e6dada, #274046)"
-  }
+  },
+  Haze: {
+    icone: '<i class="wi wi-day-fog"></i>',
+    commentaire: "Brumeux",
+    bgstyle: "linear-gradient(to left top, #ece9e6, #ffffff)"
+  },
 };
 
 function miseEnFormeMeteoDuJour(meteoJour) {
