@@ -38,10 +38,17 @@ const meteos = {
     icone: '<i class="wi wi-day-sleet"></i>',
     commentaire: "Grisaille",
     bgstyle: "linear-gradient(to right top, #e6dada, #274046)"
+  },
+  Smoke:
+  {
+    icone: '<i class="wi wi-day-sleet"></i>',
+    commentaire: "Grisaille",
+    bgstyle: "linear-gradient(to right top, #e6dada, #274046)"
   }
 };
 
 function miseEnFormeMeteoDuJour(meteoJour) {
+
   const fleche = tourneFleche(meteoJour.wind.deg);
   const temps = meteoJour.weather[0].main;
   const leveSoleil =
@@ -64,7 +71,8 @@ function miseEnFormeMeteoDuJour(meteoJour) {
   setTimer();
 
   document.getElementById("infoVille").innerHTML =
-    "Actuellement à " + "<h1>" + afficheVilleCountry() + "</h1>";
+  
+    "Actuellement à " + "<h1>" + afficheVilleCountry() +  "</h1>";
   // document.getElementById("commentaire").innerHTML = meteos[temps].commentaire;
   // document.getElementById("tempsIcone").innerHTML = meteos[temps].icone;
   // document.getElementById("temperature").innerHTML =
@@ -172,12 +180,14 @@ function displayFields(show) {
     document.querySelector(".nexthours").classList.remove("hide");
     document.querySelector(".nextdays").classList.remove("hide");
     document.querySelector(".weatherSection").classList.remove("hide");
+    document.querySelector("#error").classList.add("hide");
     break
     default:
     document.querySelector(".infoPlus").classList.add("hide");
     document.querySelector(".infoTemp").classList.add("hide");
     document.querySelector(".nexthours").classList.add("hide");
     document.querySelector(".nextdays").classList.add("hide");
+    document.querySelector("#error").classList.remove("hide");
     document.querySelector(".weatherSection").classList.add("hide");
     break;
 

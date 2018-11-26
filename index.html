@@ -38,6 +38,12 @@
           <i class="fas fa-search-location"></i> Cherche
         </button>
       </form>
+      <div id="error" class="hide">Astuces :
+        <ul>
+          <li>Chercher une ville en ajoutant son pays (exemple : 'Rio, BR')</li>
+          <li>Chercher une ville par son nom local (exemple : <s>'Pekin, CN'</s>, essayez 'Beijing, CN')</li>
+        </ul>
+      </div>
       <section id="weatherSection" class="hide weatherSection l-section">
         <div id="infoVille" class="w100"></div>
         <div id="infoTemp" class="hide infoTemp panel w50"></div>
@@ -65,9 +71,9 @@
   <script src="js/main.js"></script>
   <script>
     function init() {
-      var input = document.getElementById("ville");
-      var autocomplete = new google.maps.places.Autocomplete(input);
+      // var input = document.getElementById("ville");
+      // var autocomplete = new google.maps.places.Autocomplete(input);
     }
-    google.maps.event.addDomListener(window, "load", init);
+    // google.maps.event.addDomListener(window, "load", init);
   </script>
 </html>

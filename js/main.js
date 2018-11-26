@@ -16,6 +16,9 @@ async function main(event) {
   
    villeRecherchee = document.querySelector("#ville").value.trim();
 
+   villeRecherchee=verifSyntaxe(villeRecherchee)
+
+
   event.preventDefault(event);
   if (ville != "") {
     const forecastWeather = await getForecastMeteo(villeRecherchee);

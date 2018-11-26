@@ -21,6 +21,7 @@ function getMeteo(ville) {
       ville +
       "&appid=8e602b9ea28ed4f9f8fc97a5f6d1105c&units=metric"
   ).then(function(reponse) {
+    // console.log(reponse)
     return reponse.json();
   })
   .catch(displayFields());

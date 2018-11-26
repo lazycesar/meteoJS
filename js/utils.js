@@ -41,19 +41,25 @@ function forecast(forecastWeather) {
 }
 
 function setTimer(villeRecherchee) {
-  if(villeRecherchee!=undefined){
-  // console.log("je rentre dans la fonction, villeRecherchee = "+villeRecherchee+" refresh = "+refresh)
-  if (refresh == undefined) {
-    // console.log("j'initialise le compteur");
-    
-    return refresh = window.setInterval(chargeMeteoDuJour(villeRecherchee),7200000);
-  } else {
-    window.clearInterval(refresh);
-    // console.log("je réinitialise le compteur");
-    return refresh = window.setInterval(chargeMeteoDuJour(villeRecherchee),7200000);
-  }}
-}
+  if (villeRecherchee != undefined) {
+    // console.log("je rentre dans la fonction, villeRecherchee = "+villeRecherchee+" refresh = "+refresh)
+    if (refresh == undefined) {
+      // console.log("j'initialise le compteur");
 
+      return (refresh = window.setInterval(
+        chargeMeteoDuJour(villeRecherchee),
+        7200000
+      ));
+    } else {
+      window.clearInterval(refresh);
+      // console.log("je réinitialise le compteur");
+      return (refresh = window.setInterval(
+        chargeMeteoDuJour(villeRecherchee),
+        7200000
+      ));
+    }
+  }
+}
 
 function miseEnParagraphe(texte) {
   return "<p>" + texte + "</p>";
@@ -66,7 +72,7 @@ function tourneFleche(deg) {
 function convertDate(unix_timestamp) {
   const maDate = new Date(unix_timestamp * 1000);
   const minute =
-    maDate.getMinutes() < 10 ? "0" + maDate.getMinutes()  : maDate.getMinutes();
+    maDate.getMinutes() < 10 ? "0" + maDate.getMinutes() : maDate.getMinutes();
   const heure = maDate.getHours() + ":" + minute;
   const date = maDate.getDate() + "/" + (+maDate.getMonth() + 1);
   return { date: date, heure: heure, fullDate: maDate };
@@ -92,6 +98,19 @@ function afficheVilleCountry() {
   return ville + ", " + country;
 }
 
-function makeForecast(tableau){
-  
+function verifSyntaxe(ville) {
+  const tabVille = ville.split(",");
+  if (tabVille.length > 1) {
+    let country = tabVille[tabVille.length - 1].trim();
+    if (country.indexOf(" ") != -1) {
+      country = country.slice(0, 1) + country.slice(country.indexOf(" ")+1, country.indexOf(" ")+2);
+    } else {
+      country = country.slice(0, 2);
+    }
+
+    const city = tabVille[0];
+    return city + ", " + country;
+  } else {
+    return ville;
+  }
 }
