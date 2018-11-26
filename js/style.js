@@ -129,7 +129,7 @@ function afficheTopVilles(topVilles) {
     ville = capitalize(topVilles[i].ville);
     pays = topVilles[i].country.toUpperCase();
 
-    html += `<button class="btn" data-action="afficher" data-ville="${ville +
+    html += `<button class="btn invert" data-action="afficher" data-ville="${ville +
       "," +
       pays}">${ville + "," + pays}</button>`;
   }
@@ -160,25 +160,23 @@ function createForcast(tableau) {
       miseEnParagraphe(tableau[j].main.temp + " °C") +
       "</div>";
   }
-  displayFields("show")
+  displayFields("show");
   return html;
 }
 
-function displayFields(show){
-  switch(show){
+function displayFields(show) {
+  switch (show) {
     case "show":
-    document.querySelector(".infoPlus").classList.remove("hide");
-    document.querySelector(".infoTemp").classList.remove("hide");
-    document.querySelector(".nexthours").classList.remove("hide");
-    document.querySelector(".nextdays").classList.remove("hide");
-    break
+      document.querySelector(".infoPlus").classList.remove("hide");
+      document.querySelector(".infoTemp").classList.remove("hide");
+      document.querySelector(".nexthours").classList.remove("hide");
+      document.querySelector(".nextdays").classList.remove("hide");
+      break;
     default:
-    document.querySelector(".infoPlus").classList.add("hide");
-    document.querySelector(".infoTemp").classList.add("hide");
-    document.querySelector(".nexthours").classList.add("hide");
-    document.querySelector(".nextdays").classList.add("hide");
-    break;
-
-    
+      document.querySelector(".infoPlus").classList.add("hide");
+      document.querySelector(".infoTemp").classList.add("hide");
+      document.querySelector(".nexthours").classList.add("hide");
+      document.querySelector(".nextdays").classList.add("hide");
+      break;
   }
 }
