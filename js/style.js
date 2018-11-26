@@ -160,6 +160,25 @@ function createForcast(tableau) {
       miseEnParagraphe(tableau[j].main.temp + " °C") +
       "</div>";
   }
-
+  displayFields("show")
   return html;
+}
+
+function displayFields(show){
+  switch(show){
+    case "show":
+    document.querySelector(".infoPlus").classList.remove("hide");
+    document.querySelector(".infoTemp").classList.remove("hide");
+    document.querySelector(".nexthours").classList.remove("hide");
+    document.querySelector(".nextdays").classList.remove("hide");
+    break
+    default:
+    document.querySelector(".infoPlus").classList.add("hide");
+    document.querySelector(".infoTemp").classList.add("hide");
+    document.querySelector(".nexthours").classList.add("hide");
+    document.querySelector(".nextdays").classList.add("hide");
+    break;
+
+    
+  }
 }
