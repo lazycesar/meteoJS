@@ -6,8 +6,9 @@ async function getForecastMeteo(ville) {
   ).then(function(reponse) {
     return reponse.json();
   })
-  .catch(displayFields());
+  .catch(()=>setTimeout(erreurVille(),100));
 }
+
 
 function getVillesRecords() {
   return fetch("https://5be41d5495e4340013f88ebe.mockapi.io/Meteo").then(
@@ -24,8 +25,9 @@ function getMeteo(ville) {
     // console.log(reponse)
     return reponse.json();
   })
-  .catch(displayFields());
+  .catch(()=>setTimeout(erreurVille(),100));
 }
+
 
 function verifVille(majVille) {
   let value = {};

@@ -22,11 +22,12 @@ async function main(event) {
   event.preventDefault(event);
   if (ville != "") {
     const forecastWeather = await getForecastMeteo(villeRecherchee);
-
+   if (forecastWeather.cod<400){
     const forecastMeteo = forecast(forecastWeather);
     
     miseEnFormeForcast(forecastMeteo);
-    setTimer(villeRecherchee);
+    setTimer(villeRecherchee);}
+    else displayFields()
     
   } else {alert("ville vide");}
 }
@@ -36,9 +37,9 @@ document.querySelector("#charger").addEventListener("click", main);
 async function chargeMeteoDuJour(villeRecherchee){
   // console.log(villeRecherchee)
   meteoDuJour = await getMeteo(villeRecherchee);
-      
+    if(meteoDuJour.cod<400){
   miseEnFormeMeteoDuJour(meteoDuJour);
-  verifVille(meteoDuJour);
+  verifVille(meteoDuJour);}else displayFields()
 }
 
 

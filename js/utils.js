@@ -114,3 +114,17 @@ function verifSyntaxe(ville) {
     return ville;
   }
 }
+
+function erreurVille(objet) {
+  
+  if(objet.cod<400){
+    const forecastMeteo = forecast(forecastWeather);
+    
+    miseEnFormeForcast(forecastMeteo);
+    setTimer(villeRecherchee);
+    miseEnFormeMeteoDuJour(meteoDuJour);
+  verifVille(meteoDuJour);
+  }else{
+  displayFields()
+}
+}

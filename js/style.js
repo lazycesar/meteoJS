@@ -150,9 +150,7 @@ function afficheTopVilles(topVilles) {
   });
 }
 
-function erreurVille() {
-  document.getElementById("ville").style.border = "2px solid red";
-}
+
 
 function createForcast(tableau) {
   let html = "";
@@ -173,6 +171,7 @@ function createForcast(tableau) {
 }
 
 function displayFields(show) {
+  console.log(Date())
   switch (show) {
     case "show":
     document.querySelector(".infoPlus").classList.remove("hide");
