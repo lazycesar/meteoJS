@@ -39,8 +39,7 @@ const meteos = {
     commentaire: "Grisaille",
     bgstyle: "linear-gradient(to right top, #e6dada, #274046)"
   },
-  Smoke:
-  {
+  Smoke: {
     icone: '<i class="wi wi-day-sleet"></i>',
     commentaire: "Grisaille",
     bgstyle: "linear-gradient(to right top, #e6dada, #274046)"
@@ -49,11 +48,10 @@ const meteos = {
     icone: '<i class="wi wi-day-fog"></i>',
     commentaire: "Brumeux",
     bgstyle: "linear-gradient(to left top, #ece9e6, #ffffff)"
-  },
+  }
 };
 
 function miseEnFormeMeteoDuJour(meteoJour) {
-
   const fleche = tourneFleche(meteoJour.wind.deg);
   const temps = meteoJour.weather[0].main;
   const leveSoleil =
@@ -76,8 +74,7 @@ function miseEnFormeMeteoDuJour(meteoJour) {
   setTimer();
 
   document.getElementById("infoVille").innerHTML =
-  
-    "Actuellement à " + "<h1>" + afficheVilleCountry() +  "</h1>";
+    "Actuellement à " + "<h1>" + afficheVilleCountry() + "</h1>";
   // document.getElementById("commentaire").innerHTML = meteos[temps].commentaire;
   // document.getElementById("tempsIcone").innerHTML = meteos[temps].icone;
   // document.getElementById("temperature").innerHTML =
@@ -124,14 +121,16 @@ function miseEnFormeForcast(forecast) {
 
   for (i = 0; i < forecast.forecast.length; i += 8) {
     listeArticle +=
-      "<div>" +
-      miseEnParagraphe(convertDate(forecast.forecast[i].dt).date) +
+      "<div class='nextdays_day'>" +
+      "<p class='w100'>" +
+      convertDate(forecast.forecast[i].dt).date +
+      "</p>" +
       createForcast(forecast.forecast.slice(i, i + 7)) +
       "</div>";
   }
 
   document.getElementById("nextdays").innerHTML =
-    "<h3 class='w100'>Les prochains jours</h3>" + listeArticle;
+    "<h3>Les prochains jours</h3>" + listeArticle;
 }
 
 function afficheTopVilles(topVilles) {
@@ -155,8 +154,6 @@ function afficheTopVilles(topVilles) {
   });
 }
 
-
-
 function createForcast(tableau) {
   let html = "";
   // console.log(tableau)
@@ -176,25 +173,23 @@ function createForcast(tableau) {
 }
 
 function displayFields(show) {
-  console.log(Date())
+  console.log(Date());
   switch (show) {
     case "show":
-    document.querySelector(".infoPlus").classList.remove("hide");
-    document.querySelector(".infoTemp").classList.remove("hide");
-    document.querySelector(".nexthours").classList.remove("hide");
-    document.querySelector(".nextdays").classList.remove("hide");
-    document.querySelector(".weatherSection").classList.remove("hide");
-    document.querySelector("#error").classList.add("hide");
-    break
+      document.querySelector(".infoPlus").classList.remove("hide");
+      document.querySelector(".infoTemp").classList.remove("hide");
+      document.querySelector(".nexthours").classList.remove("hide");
+      document.querySelector(".nextdays").classList.remove("hide");
+      document.querySelector(".weatherSection").classList.remove("hide");
+      document.querySelector("#error").classList.add("hide");
+      break;
     default:
-    document.querySelector(".infoPlus").classList.add("hide");
-    document.querySelector(".infoTemp").classList.add("hide");
-    document.querySelector(".nexthours").classList.add("hide");
-    document.querySelector(".nextdays").classList.add("hide");
-    document.querySelector("#error").classList.remove("hide");
-    document.querySelector(".weatherSection").classList.add("hide");
-    break;
-
-    
+      document.querySelector(".infoPlus").classList.add("hide");
+      document.querySelector(".infoTemp").classList.add("hide");
+      document.querySelector(".nexthours").classList.add("hide");
+      document.querySelector(".nextdays").classList.add("hide");
+      document.querySelector("#error").classList.remove("hide");
+      document.querySelector(".weatherSection").classList.add("hide");
+      break;
   }
 }

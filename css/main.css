@@ -42,6 +42,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin-bottom: 1.5%;
 }
 .w100 {
   flex: 1 1 100%;
@@ -75,6 +76,20 @@ form {
 .nexthours div:not(:last-child) {
   border-right: 1px solid var(--blue);
 }
+.nextdays {
+  flex-direction: column;
+  align-content: unset;
+  padding: 0 1.5%;
+}
+.nextdays_day div {
+  flex: 1 0 0;
+}
+.nextdays_day {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .searchInput {
   display: flex;
   width: 100%;
